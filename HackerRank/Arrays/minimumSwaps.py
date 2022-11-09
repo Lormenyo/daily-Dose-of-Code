@@ -1,7 +1,7 @@
 import random
 import time
 
-
+#times out with input where length of array is 10^5
 def minimumSwaps(arr):
     numberOfSwaps = 0
     for i in range(len(arr)):
