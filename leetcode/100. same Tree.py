@@ -18,7 +18,13 @@ def isSameTree(self, p, q):
            self.isSameTree(p.left, q.left)
 
 # Complexity Analysis
-
 # Time complexity : O(N)O(N), where N is a number of nodes in the tree, since one visits each node exactly once.
-
 # Space complexity : O(N)O(N) in the worst case of completely unbalanced tree, to keep a recursion stack.
+
+
+def isSameTreeBFS(self, p, q):
+    """
+    :type p: TreeNode
+    :type q: TreeNode
+    :rtype: bool
+    """    
