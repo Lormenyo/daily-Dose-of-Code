@@ -1,3 +1,5 @@
+import collections
+
 graph = {
   'A' : ['B','C'],
   'B' : ['D', 'E'],
@@ -7,15 +9,17 @@ graph = {
   'F' : []
 }
 
+
+
 visited = [] # List to keep track of visited nodes.
-queue = []     #Initialize a queue
+queue = collections.deque()     #Initialize a queue
 
 def bfs(visited, graph, node):
   visited.append(node)
   queue.append(node)
 
   while queue:
-    s = queue.pop(0) 
+    s = queue.popleft() 
     print (s, end = " ") 
 
     for neighbour in graph[s]:
