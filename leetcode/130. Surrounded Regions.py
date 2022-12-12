@@ -11,6 +11,7 @@ class Solution:
         visited = set()
 
         def checkForX(i, j):
+            ## check foerr all not one
             return board[i-1][j] == "X" or board[i+1][j] == "X" or board[i][j+1] == "X" or board[i][j-1] == "X"
 
         def bfs(r, c):
