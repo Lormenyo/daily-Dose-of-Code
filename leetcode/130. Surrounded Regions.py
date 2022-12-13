@@ -32,7 +32,7 @@ class Solution:
                     newRow, newCol = dr + row, dc + col
                       
 
-                    if newRow < (rows-1) and newCol < (cols-1) and board[newRow][newCol] == "O" and (newRow, newCol) not in visited and newRow != 0 and newRow != 0 and newCol != cols-1 and newRow != rows-1 and checkForX(newRow, newCol):
+                    if newRow < (rows-1) and newCol < (cols-1) and board[newRow][newCol] == "O" and (newRow, newCol) not in visited and newRow not in [0, rows-1] and newCol not in [0, cols-1] and checkForX(newRow, newCol):
                         board[newRow][newCol] = "X"
 
                         visited.add((newRow, newCol))
@@ -43,7 +43,7 @@ class Solution:
         #find the zero surrounded by x, flip to x
         for r in range(rows):
             for c in range(cols):
-                if board[r][c] == "O" and (r, c) not in visited and r != 0 and c != 0 and c != cols-1 and r != rows-1:
+                if board[r][c] == "O" and (r, c) not in visited and r not in [0, rows-1] and c not in [0, cols-1]:
                 # if board[r][c] == "O" and (r, c) not in visited and r not in range(0, rows-1) and c not in range(0, cols-1):
                     bfs(r, c)
 
