@@ -9,6 +9,16 @@
 #     public List<Node> neighbors;
 # }
 
+# For simplicity, each node's value is the same as the node's index (1-indexed). 
+# For example, the first node with val == 1, the second node with val == 2, and 
+# so on. The graph is represented in the test case using an adjacency list.
+
+# An adjacency list is a collection of unordered lists used to represent a finite graph. 
+# Each list describes the set of neighbors of a node in the graph.
+
+# The given node will always be the first node with val = 1. 
+# You must return the copy of the given node as a reference to the cloned graph.
+
 
 # Definition for a Node.
 class Node:
@@ -19,4 +29,24 @@ class Node:
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        return
+        #create a hashmap
+        nodeMap = {}
+
+        def dfs(node):
+            #check if clone already exists in hashmap
+            # return the clone if it exists
+            if node in nodeMap:
+                return nodeMap[node]
+
+            #create a copy of the node if it does not exist
+            copy = Node(node.val)
+            # add the node to the hashmap
+            nodeMap[node] = copy
+
+            #create copies of neighbors for the node using dfs
+            for neighbor in node.neighbors:
+                copy.neighbors.append(dfs(neighbor))
+
+            return copy
+
+        return dfs(node) if node else None
