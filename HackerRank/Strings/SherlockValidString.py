@@ -16,7 +16,7 @@
 # returns YES OR NO
 
 
-#------------ 4 test cases failing ------------
+#------------ PASSED ALL TEST CASES ------------
 def isValid(s):
     #if all values not same, check get the highest count and subtract 1
     
@@ -27,10 +27,10 @@ def isValid(s):
             
         return stringDict
     
-    def checkValidString(counts):
+    def checkValidString(characterCounts):
         # the frequency of the first value in counts should be equal to 
         # length of counts if all letters have the same frequencies
-        if (letterCounts.count(letterCounts[0]) == len(letterCounts)):
+        if (characterCounts.count(characterCounts[0]) == len(characterCounts)):
             return True
         return False
     
@@ -40,11 +40,17 @@ def isValid(s):
     if (checkValidString(letterCounts)):
         return 'YES'
     else:
-        maxCount = max(letterCounts)
-        maxIndex = letterCounts.index(maxCount)
-        letterCounts[maxIndex] = maxCount - 1
-        if (checkValidString(letterCounts)):
-            return 'YES'
+        maxCount, minCount = max(letterCounts), min(letterCounts)
+        maxIndex, minIndex = letterCounts.index(maxCount), letterCounts.index(minCount)
+        newLetterCounts = letterCounts.copy()
+        newLetterCounts[maxIndex] = maxCount - 1
+        letterCounts.pop(minIndex)
+        print(maxCount, newLetterCounts)
+        if (checkValidString(newLetterCounts) or checkValidString(letterCounts)):
+            return 'YES' 
         else:
             return 'NO'
         
+        
+
+# aabbc - YES
