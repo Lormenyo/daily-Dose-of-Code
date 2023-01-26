@@ -38,7 +38,12 @@
 
 class Solution:
     def pacificAtlantic(self, heights: list[list[int]]) -> list[list[int]]:
-
+        """
+        Go through the grid, get the positions that flow into the pacific ocean
+        Get the positions that flow into the atlantic oceans
+        Go through the entire grid and return positions that flow into 
+        both the pacific and atlantic ocean
+        """
         rows, cols = len(heights), len(heights[0])
         pacific, atlantic = set(), set()
 
