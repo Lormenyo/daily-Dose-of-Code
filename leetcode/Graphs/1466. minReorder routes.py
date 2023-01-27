@@ -1,5 +1,5 @@
 class Solution:
-    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+    def minReorder(self, n: int, connections: list[list[int]]) -> int:
 
         edges = {(a,b) for a,b in connections}
 
