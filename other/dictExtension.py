@@ -1,5 +1,3 @@
-
-
 """
 
 Example 1
@@ -77,9 +75,6 @@ def solution(methods, queries):
         # print(mydict)
         
     return sumResults
-        
-        
-
         
     
 
