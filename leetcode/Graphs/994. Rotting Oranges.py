@@ -1,7 +1,7 @@
 import collections
 
 class Solution:
-    def orangesRotting(self, grid: List[List[int]]) -> int:
+    def orangesRotting(self, grid: list[list[int]]) -> int:
         queue = collections.deque()
         rows, cols = len(grid), len(grid[0])
         FRESH = 1
