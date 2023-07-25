@@ -21,3 +21,19 @@ class Solution:
                 postfix *= nums[i]    #postfix = 1x4=4  #postfix = 4x3=12 #postfix = 12x2=24
                 
         return answer
+    
+
+
+    def productExceptSelf2(self, nums: List[int]) -> List[int]:
+        answer = [1] * len(nums)
+        prefix, postfix = 1, 1
+
+        for i in range(len(nums)):
+            answer[i] = prefix
+            prefix *= nums[i] 
+            
+        for i in range(len(nums)-1, -1, -1):
+            answer[i] *= postfix   
+            postfix *= nums[i] 
+                
+        return answer
